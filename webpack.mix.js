@@ -40,9 +40,9 @@ mix.js(['resources/js/cabinet/settings/index.js'], 'public/js/cabinet/settings/i
 
 
 // Modules
-mix.css('app/Modules/Example/resources/cabinet/css/app.css', 'public/css/cabinet/example/app.css');
-mix.js(['app/Modules/Example/resources/cabinet/js/app.js'], 'public/js/cabinet/example/app.min.js').version();
-mix.copyDirectory('app/Modules/Example/resources/cabinet/img', 'public/img/cabinet/example').version();
+mix.css('app/Modules/Chat/resources/cabinet/css/app.css', 'public/css/cabinet/chat/app.css');
+mix.js(['app/Modules/Chat/resources/cabinet/js/app.js'], 'public/js/cabinet/chat/app.min.js').version();
+mix.copyDirectory('app/Modules/Chat/resources/cabinet/img', 'public/img/cabinet/chat').version();
 
 
 // Caching

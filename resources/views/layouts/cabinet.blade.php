@@ -47,7 +47,7 @@
                         </li>
 
                         <li class="nav-item ml-3">
-                            <a class="nav-link" href="{{ route('cabinet.example') }}">Example</a>
+                            <a class="nav-link" href="{{ route('cabinet.chat') }}">Chat</a>
                         </li>
 
                         <li class="nav-item dropdown ml-3">
@@ -91,7 +91,7 @@
         </nav>
 
         <main role="main" class="py-md-4">
-            <div class="container">
+            <div class="container app">
                 @yield('content')
             </div>
         </main>

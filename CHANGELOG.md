@@ -6,57 +6,36 @@ The format is based on Keep a Changelog.
 
 ## [Unreleased]
 
-## [v0.3.0] - 2026-04-03
+## [v0.1.0] - 2026-04-05
 
-**Overview:** Introduces modular monolith architecture with a reference module and project documentation.
-
-### Features
-- Introduce modular architecture (`app/Modules`)
-- Add reference module (`Example`) as a base for new features
-- Add module-level routing, views, migrations, and assets support
+**Overview:** Initial release of the Chat module built on top of L9STK Core v0.3.0.
 
 ### Added
-- Add Example module with Cabinet and Ajax endpoints
-- Add module ServiceProvider integration (routes, views, migrations)
-- Add frontend asset structure for modules
+- Chat module (`/Modules/Chat`)
+- Message sending via AJAX
+- Incremental message loading using `last_id`
+- Chat API endpoints:
+    - `POST /cabinet/chat/ajax/messages`
+    - `GET /cabinet/chat/ajax/messages`
+- Database migrations for chat messages
 
-### Docs
-- Add comprehensive README with architecture description and usage guide
-- Document module structure and integration points
-
-
-## [v0.2.0] - 2026-03-16
-
-**Overview:** Introduces user settings management, improves session handling, and includes code/style maintenance and security updates.
-
-### Features 
-- Add unit user settings for authentication
-
-### Fixes
-- Improve handling of expired sessions (419 Page Expired)
-
-### Chores
-- Clean up Composer scripts and dependencies
-- Restrict API access to allowed domains
-
-### Style
-- Apply Laravel Pint formatting
-
-
-## [v0.1.0] - 2026-03-10
-
-**Overview:** Initial addition of the account UI and settings page.
-
-### Added
-- Added cabinet layout and basic cabinet pages.
-- Added Settings page view.
+### UX / UI
+- Auto-growing textarea
+- Enter to send (Shift + Enter for newline)
+- Input limits with visual feedback
+- Automatic scroll to latest message
+- Prevention of duplicate message rendering
+- Responsive layout (mobile-friendly)
+- Flexbox-based layout
 
 ### Changed
-- Improved layout structure for cabinet pages.
-- Adjusted Bootstrap layout for form fields (username, email, profile data).
-- Improved responsive spacing for cabinet layout.
-- Minor UI cleanup for Settings form.
+- Base project initialized from L9STK Core v0.3.0
+- Minor layout adjustments for module integration
 
-[v0.1.0]: https://github.com/src83/l9stk/commit/f937c2c900c6407207a29533cf8b458de71905f0
-[v0.2.0]: https://github.com/src83/l9stk/commit/3404dca08fda751c4e4a31eb1a0eb32af0fd0d16
-[v0.3.0]: https://github.com/src83/l9stk/commit/a520c19dc02fb4a60d5a514e3035843a4df8daaf
+### Notes
+- Chat implementation added in a single feature commit
+- Uses HTTP polling (no WebSocket support)
+- Single global chat room
+- No delivery/read status tracking on backend
+
+[v0.1.0]: https://github.com/src83/l9stk-chat/commit/5f805ab02a36b14ee1ff65c17a44ac0cd2630b1e
