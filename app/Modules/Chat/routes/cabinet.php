@@ -20,6 +20,6 @@ Route::group([
 Route::group([
     'prefix' => 'chat/ajax',
 ], static function () {
-    Route::get('/messages',  [MessageController::class, 'index'])->name('chat.ajax.messages.index');
+    Route::get('/messages', [MessageController::class, 'index'])->name('chat.ajax.messages.index');
     Route::post('/messages', [MessageController::class, 'create'])->name('chat.ajax.messages.create');
 });

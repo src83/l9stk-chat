@@ -18,5 +18,7 @@ class Authenticate extends Middleware
             // session()->flash('session_expired', true);
             return route('showLoginForm');
         }
+
+        return null;
     }
 }

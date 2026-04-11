@@ -3,7 +3,6 @@
 namespace App\Modules\Chat\Http\Controllers\Cabinet\Ajax;
 
 use App\Http\Controllers\Controller;
-
 use App\Modules\Chat\Http\Requests\Cabinet\ChatFormRequest;
 use App\Modules\Chat\Repositories\MessageRepository;
 use Illuminate\Http\JsonResponse;
@@ -37,8 +36,8 @@ class MessageController extends Controller
         $data = [
             'user_id' => auth()->id(),
             'client_id' => trim($clientId),
-            'text'    => trim($text),
-            'status'  => 'sent',
+            'text' => trim($text),
+            'status' => 'sent',
         ];
 
         $message = $this->messageRepository->create($data);

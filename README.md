@@ -2,11 +2,11 @@
 
 **Русская версия:** [README-RU.md](README-RU.md)
 
-**This application is a working prototype of a platform-oriented approach based on the L9STK Core v0.3.0 modular monolith.**
+**This application is a working prototype of a platform-oriented approach based on the L9STK Core v0.4.0 modular monolith.**
 
 - STK repository and documentation: https://github.com/src83/l9stk
-- STK version: v0.3.0
-- Application version: v0.1.0
+- STK version: v0.4.0
+- Application version: v0.2.0
 - Status: Production
 - Laravel: v9.52.21
 - PHP: 8.2

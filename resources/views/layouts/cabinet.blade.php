@@ -27,75 +27,84 @@
     <title>{{ config('app.brand', 'Laravel') }}</title>
 </head>
 <body>
-    <div id="app">
+<div id="app">
 
-        <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <b>{{ config('app.brand', 'Laravel') }}</b>
-                </a>
+    <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="{{ route(config('cabinet.brand_route', 'cabinet.index')) }}">
+                <b>{{ config('app.brand', 'Laravel') }}</b>
+            </a>
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav ml-auto">
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ml-auto">
 
+                    @if (Route::has('cabinet.index') && isMenuItemVisible('home'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('cabinet.index') }}">Home</a>
-                        </li>
-
-                        <li class="nav-item ml-3">
-                            <a class="nav-link" href="{{ route('cabinet.chat') }}">Chat</a>
-                        </li>
-
-                        <li class="nav-item dropdown ml-3">
-
-                            <a href="#" role="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                {{ Auth::user()->name }}
+                            <a class="nav-link" href="{{ route('cabinet.index') }}">
+                                {{ __('Home') }}
                             </a>
-
-                            <div class="dropdown-menu">
-
-                                @if (Route::has('cabinet.user.profile.index'))
-                                    <a class="dropdown-item" href="{{ route('cabinet.user.profile.index') }}">
-                                        {{ __('Profile') }}
-                                    </a>
-                                @endif
-
-                                @if (Route::has('cabinet.user.settings.password.index'))
-                                    <a class="dropdown-item" href="{{ route('cabinet.user.settings.password.index') }}">
-                                        {{ __('Settings') }}
-                                    </a>
-                                @endif
-
-                                <div class="dropdown-divider"></div>
-
-                                @if (Route::has('cabinet.logout'))
-                                    <a class="dropdown-item" href="{{ route('cabinet.logout') }}"
-                                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('cabinet.logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                @endif
-
-                            </div>
                         </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+                    @endif
 
-        <main role="main" class="py-md-4">
-            <div class="container app">
-                @yield('content')
+                    @if (Route::has('cabinet.chat') && isMenuItemVisible('chat'))
+                        <li class="nav-item ml-3">
+                            <a class="nav-link" href="{{ route('cabinet.chat') }}">
+                                {{ __('Chat') }}
+                            </a>
+                        </li>
+                    @endif
+
+                    <li class="nav-item dropdown ml-3">
+
+                        <a href="#" role="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            {{ Auth::user()->name }}
+                        </a>
+
+                        <div class="dropdown-menu">
+
+                            @if (Route::has('cabinet.user.profile.index'))
+                                <a class="dropdown-item" href="{{ route('cabinet.user.profile.index') }}">
+                                    {{ __('Profile') }}
+                                </a>
+                            @endif
+
+                            @if (Route::has('cabinet.user.settings.password.index'))
+                                <a class="dropdown-item" href="{{ route('cabinet.user.settings.password.index') }}">
+                                    {{ __('Settings') }}
+                                </a>
+                            @endif
+
+                            <div class="dropdown-divider"></div>
+
+                            @if (Route::has('cabinet.logout'))
+                                <a class="dropdown-item" href="{{ route('cabinet.logout') }}"
+                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('cabinet.logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            @endif
+
+                        </div>
+                    </li>
+                </ul>
             </div>
-        </main>
-    </div>
+        </div>
+    </nav>
+
+    <main role="main" class="py-md-4">
+        <div class="container application">
+            @yield('content')
+        </div>
+    </main>
+</div>
 @stack('scripts')
 
 </body>

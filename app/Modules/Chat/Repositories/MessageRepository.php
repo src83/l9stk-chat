@@ -9,7 +9,7 @@ class MessageRepository
 {
     public function create(array $data): ?Message
     {
-        $message = new Message();
+        $message = new Message;
         $message->fill($data);
         $message->save();
 

@@ -1,7 +1,6 @@
 <?php
 
 use App\Modules\Chat\Providers\ChatServiceProvider;
-use App\Modules\Example\Providers\ExampleServiceProvider;
 use App\Providers\AppServiceProvider;
 use App\Providers\EventServiceProvider;
 use App\Providers\RouteServiceProvider;
