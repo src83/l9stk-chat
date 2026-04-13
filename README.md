@@ -43,6 +43,22 @@
 
 ---
 
+### Flexbox layout hierarchy
+
+```txt
+html (height:100%)
+ └── body (flex, column, height:100%)
+     └── #app (flex, column, flex:1)
+         ├── nav (flex:0 0 auto)
+         └── main.py-md-4 (flex, flex:1)
+             └── .container.application (flex, flex:1)
+                 └── .conversation (flex, column, flex:1)
+                     ├── .message (flex:1, overflow-y:auto)
+                     └── .reply (flex:0 0 auto)
+```
+
+---
+
 ### Limitations
 
 - No user registration (users are created manually)

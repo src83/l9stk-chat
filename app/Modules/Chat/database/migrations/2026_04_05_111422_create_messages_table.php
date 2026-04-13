@@ -25,7 +25,7 @@ return new class extends Migration
 
             $table->text('text');
 
-            // 'sent', 'delivered', 'read', 'failed'
+            // 'sending', 'sent', 'delivered', 'read', 'failed'
             $table->string('status', 32)->default('sent');
 
             $table->timestamps();
